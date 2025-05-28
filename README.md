@@ -7,7 +7,7 @@ I created this website using React + Vite and Tailwind Css.
 ![image alt](https://github.com/Senura-Peiris/redbox/blob/master/Hero2.jpeg)
 
 02. Footer Section:
-![image alt]()
+![image alt](https://github.com/Senura-Peiris/redbox/blob/master/Footer.jpeg)
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
