@@ -22,7 +22,7 @@ export default function Footer() {
   {/* Footer Content */}
   <div className="relative z-10 w-full flex flex-col gap-20 mt-20">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
-<div className="space-y-4 sm:text-left text-center">
+<div className="space-y-4 sm:text-left text-center ml-14">
   <div className="flex justify-center sm:justify-start">
     <img src={Logo} alt="Techwox Logo" className="h-21 cursor-pointer" />
   </div>
