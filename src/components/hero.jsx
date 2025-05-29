@@ -50,29 +50,24 @@ const HeroSection = () => {
           pointerEvents: shouldFix ? "auto" : "none",
         }}
       >
-       {/* ✅ Fixed Background image for all devices */}
-<img
-  className="absolute inset-0 w-full h-full object-cover z-0"
-  src={ShipImage}
-  alt="Ship Background"
-  style={{
-    objectPosition: "center center",
-  }}
-/>
+        {/* Background Image */}
+        <img
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src={ShipImage}
+          alt="Ship Background"
+          style={{ objectPosition: "center center" }}
+        />
 
-{/* ✅ Fixed Smoke video overlay for all devices */}
-<video
-  className="absolute inset-0 w-full h-full object-cover opacity-40 z-20 pointer-events-none"
-  src={SmokeVideo}
-  autoPlay
-  muted
-  loop
-  playsInline
-  style={{
-    objectPosition: "center center",
-  }}
-/>
-
+        {/* Smoke Video Overlay */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-40 z-20 pointer-events-none"
+          src={SmokeVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ objectPosition: "center center" }}
+        />
 
         {/* Left Mountain */}
         <img
