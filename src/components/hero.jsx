@@ -50,11 +50,14 @@ const HeroSection = () => {
           pointerEvents: shouldFix ? "auto" : "none",
         }}
       >
-        {/* Background image */}
+        {/* ✅ Fixed Background image for mobile */}
         <img
           className="absolute inset-0 w-full h-full object-cover z-0"
           src={ShipImage}
           alt="Ship Background"
+          style={{
+            objectPosition: "center center",
+          }}
         />
 
         {/* Smoke video Overlay */}
