@@ -7,10 +7,10 @@ import RightMountain from "../images/right mountain.png";
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight || 0);
 
   useEffect(() => {
-    const handleResize = () => setViewportHeight(window.innerHeight);
+    const handleResize = () => setViewportHeight(window.innerHeight || 0);
     const handleScroll = () => setScrollY(window.scrollY);
 
     window.addEventListener("resize", handleResize);
@@ -55,7 +55,11 @@ const HeroSection = () => {
           className="absolute inset-0 w-full h-full object-cover z-0"
           src={ShipImage}
           alt="Ship Background"
-          style={{ objectPosition: "center center" }}
+          style={{
+            objectPosition: "center center",
+            height: "100%",
+            width: "100%",
+          }}
         />
 
         {/* Smoke Video Overlay */}
@@ -66,7 +70,11 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          style={{ objectPosition: "center center" }}
+          style={{
+            objectPosition: "center center",
+            height: "100%",
+            width: "100%",
+          }}
         />
 
         {/* Left Mountain */}

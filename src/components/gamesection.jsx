@@ -7,9 +7,7 @@ import GamesBg from "../images/Gamesbg.webp";
 const GameCard = ({ title, description, videos, autoplay }) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  // Build the video URL with autoplay params if autoplay is true
   const buildVideoUrl = (url) => {
-    // Check if URL already has query params in video section
     const separator = url.includes("?") ? "&" : "?";
     return autoplay ? `${url}${separator}autoplay=1&mute=1` : url;
   };
@@ -17,7 +15,6 @@ const GameCard = ({ title, description, videos, autoplay }) => {
   return (
     <div className="w-full max-w-[650px] h-auto md:min-w-[660px] md:h-[360px] bg-white rounded-3xl p-4 md:p-6 text-black flex-shrink-0 ml-0 md:ml-10 transform transition-transform duration-300">
       <div className="flex flex-col md:flex-row h-full gap-4 md:gap-6">
-        {/* LEFT SIDE: Main Video + Title */}
         <div className="w-full md:w-1/2 flex flex-col">
           <iframe
             className="w-full h-[180px] md:h-[150px] rounded-xl mb-4"
@@ -30,7 +27,6 @@ const GameCard = ({ title, description, videos, autoplay }) => {
           <h3 className="text-lg font-bold">{title}</h3>
         </div>
 
-        {/* RIGHT SIDE: Two Thumbnails + Description part */}
         <div className="w-full md:w-1/2 flex flex-col justify-between">
           <div className="flex gap-2 mb-4">
             {videos.slice(1, 3).map((vid, idx) => (
@@ -44,7 +40,6 @@ const GameCard = ({ title, description, videos, autoplay }) => {
             ))}
           </div>
           <p className="text-sm text-gray-800">{description}</p>
-
           <button
             className="mt-2 text-xs px-6 py-2 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold 
                        rounded-[6px_20px_6px_20px] border-[4px] border-[#6b3f1c]
@@ -65,9 +60,12 @@ const GamesSection = () => {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+
+  const touchStartX = useRef(0);
+  const touchScrollLeft = useRef(0);
+
   const [autoplayVideos, setAutoplayVideos] = useState(false);
 
-  // Drag handlers (unchanged) part here
   const handleMouseDown = (e) => {
     isDragging.current = true;
     startX.current = e.pageX - sliderRef.current.offsetLeft;
@@ -90,16 +88,26 @@ const GamesSection = () => {
     sliderRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
-  // Intersection Observer to toggle autoplay
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].pageX - sliderRef.current.offsetLeft;
+    touchScrollLeft.current = sliderRef.current.scrollLeft;
+  };
+
+  const handleTouchMove = (e) => {
+    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
+    const walk = (x - touchStartX.current) * 1.2;
+    sliderRef.current.scrollLeft = touchScrollLeft.current - walk;
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setAutoplayVideos(entry.isIntersecting);
       },
       {
-        root: null, 
+        root: null,
         rootMargin: "0px",
-        threshold: 0.5, 
+        threshold: 0.5,
       }
     );
 
@@ -139,11 +147,13 @@ const GamesSection = () => {
 
       <div
         ref={sliderRef}
-        className="flex gap-4 cursor-grab active:cursor-grabbing select-none overflow-hidden"
+        className="flex gap-4 cursor-grab active:cursor-grabbing select-none overflow-x-hidden scroll-smooth no-scrollbar"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
       >
         <GameCard
           title={

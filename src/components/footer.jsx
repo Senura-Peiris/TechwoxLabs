@@ -6,7 +6,7 @@ import Logo from "../images/techwox logo.png";
 export default function Footer() {
   return (
 <footer
-  className="relative bg-[#1f0036] text-white px-6 md:px-20 lg:px-32 min-h-screen flex flex-col justify-center"
+  className="relative bg-[#1f0036] text-white px-6 md:px-20 lg:px-32 h-screen flex flex-col justify-center"
   style={{
     backgroundImage: `linear-gradient(to bottom,
       rgba(10, 0, 20, 0.99),   /* Top - very dark */
