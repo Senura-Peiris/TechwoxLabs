@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SmokeVideo from "../videos/smoke effect.mp4";
-import Characters from "../images/team1.png";
+import Characters from "../images/Pirateteam2.png";
 import ShipImage from "../images/pirateshipherobg1.avif";
 import LeftMountain from "../images/left mountain.png";
 import RightMountain from "../images/right mountain.png";
@@ -50,25 +50,29 @@ const HeroSection = () => {
           pointerEvents: shouldFix ? "auto" : "none",
         }}
       >
-        {/* ✅ Fixed Background image for mobile */}
-        <img
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          src={ShipImage}
-          alt="Ship Background"
-          style={{
-            objectPosition: "center center",
-          }}
-        />
+       {/* ✅ Fixed Background image for all devices */}
+<img
+  className="absolute inset-0 w-full h-full object-cover z-0"
+  src={ShipImage}
+  alt="Ship Background"
+  style={{
+    objectPosition: "center center",
+  }}
+/>
 
-        {/* Smoke video Overlay */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover opacity-40 z-20 pointer-events-none"
-          src={SmokeVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+{/* ✅ Fixed Smoke video overlay for all devices */}
+<video
+  className="absolute inset-0 w-full h-full object-cover opacity-40 z-20 pointer-events-none"
+  src={SmokeVideo}
+  autoPlay
+  muted
+  loop
+  playsInline
+  style={{
+    objectPosition: "center center",
+  }}
+/>
+
 
         {/* Left Mountain */}
         <img
@@ -134,7 +138,7 @@ const HeroSection = () => {
             zIndex: 25,
             width: "100%",
             maxWidth: "100vw",
-            height: "85vh",
+            height: "100vh",
           }}
           className="mt-4 sm:h-[30rem] md:h-[40rem]"
         />
