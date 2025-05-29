@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/navbar';
+import Navigation from './components/navbar';
 import Hero from './components/hero';
 import About from './components/about';
-import Mission from './components/mission';
 import Products from './components/products';
-import  Positions from './components/recruitement';
+import Mission from './components/mission';
 import Games from './components/gamesection';
+import Recruitement from './components/recruitement';
 import Footer from './components/footer';
+
+
+
 
 
 function App() {
@@ -15,15 +18,14 @@ function App() {
 
   return (
     <div>
-      <Navbar/>
-       <Hero/>
-       <br/>
-       <About/>
-       <Products/>
-       <Mission/>
-       <Games/>
-       <Positions/>
-       <Footer/>
+     <Navigation/>
+     <Hero/>
+     <About/>
+     <Products/>
+     <Mission/>
+     <Games/>
+     <Recruitement/>
+     <Footer/>
     </div>
   )
 }

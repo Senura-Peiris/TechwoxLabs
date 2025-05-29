@@ -39,7 +39,6 @@ const HeroSection = () => {
 
   return (
     <div className="relative" style={{ height: "110vh" }}>
-      {/* Fixed content that animates while scrolling */}
       <div
         className={`${
           shouldFix ? "fixed top-0 left-0 w-full h-screen z-20" : "absolute top-0 w-full"
@@ -51,7 +50,7 @@ const HeroSection = () => {
           pointerEvents: shouldFix ? "auto" : "none",
         }}
       >
-        {/* Background image here */}
+        {/* Background image */}
         <img
           className="absolute inset-0 w-full h-full object-cover z-0"
           src={ShipImage}
@@ -68,55 +67,57 @@ const HeroSection = () => {
           playsInline
         />
 
-        {/* Left Mountain - That is in the left side */}
+        {/* Left Mountain */}
         <img
           src={LeftMountain}
           alt="Left Mountain"
-          className="object-contain lg:h-[100vh] mt-10 sm:mt-0 hidden md:block"
+          className="hidden md:block object-contain"
           style={{
             transform: `translateX(${(1 - progress) * -100}px)`,
             opacity: progress,
             transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
             position: "absolute",
-            bottom: "0",
-            left: "0",
+            bottom: 0,
+            left: 0,
             height: "160vh",
+            maxWidth: "50vw",
             zIndex: 20,
           }}
         />
 
-        {/* Right Mountain - That comming from the right side */}
+        {/* Right Mountain */}
         <img
           src={RightMountain}
           alt="Right Mountain"
-          className="object-contain lg:h-[100vh] mt-10 sm:mt-0 hidden md:block"
+          className="hidden md:block object-contain"
           style={{
             transform: `translateX(${(1 - progress) * 100}px)`,
             opacity: progress,
             transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
             position: "absolute",
-            bottom: "0",
-            right: "0",
+            bottom: 0,
+            right: 0,
             height: "160vh",
+            maxWidth: "50vw",
             zIndex: 20,
           }}
         />
 
-        {/* Hero Component Text Part */}
-        <div className="relative z-30 flex flex-col items-center justify-center h-full text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight">
+        {/* Hero Text */}
+        <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
             PLAY
             <br />
             BEYOND
             <br />
             <span className="text-red-500">ORDINARY</span>
           </h1>
-          <button className="mt-8 px-8 py-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 transition-transform duration-300 transform hover:scale-110 text-white font-bold text-lg rounded mb-30">
+          <button className="mt-6 sm:mt-8 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 transition-transform duration-300 transform hover:scale-110 text-white font-bold text-base sm:text-lg rounded">
             OUR GAMES
           </button>
         </div>
 
-        {/* Pirate Team Image Animations and styles*/}
+        {/* Pirate Characters */}
         <img
           src={Characters}
           alt="Pirate Team"
@@ -128,9 +129,11 @@ const HeroSection = () => {
             bottom: "1rem",
             left: "50%",
             zIndex: 25,
-            maxWidth: "100%",
+            width: "100%",
+            maxWidth: "100vw",
+            height: "85vh",
           }}
-          className="mt-4 w-[100vw] h-[30rem] sm:h-[40rem] md:h-[50rem]"
+          className="mt-4 sm:h-[30rem] md:h-[40rem]"
         />
       </div>
     </div>
