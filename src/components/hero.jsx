@@ -38,7 +38,7 @@ const HeroSection = () => {
   const shouldFix = scrollY < fadeEnd;
 
   return (
-    <div className="relative h-[110vh] sm:h-[120vh] md:h-screen">
+    <div className="relative min-h-screen w-full">
       <div
         className={`${
           shouldFix ? "fixed top-0 left-0 w-full h-screen z-20" : "absolute top-0 w-full"
@@ -77,45 +77,52 @@ const HeroSection = () => {
           }}
         />
 
-        {/* Left Mountain */}
-        <img
-          src={LeftMountain}
-          alt="Left Mountain"
-          className="hidden md:block object-contain"
-          style={{
-            transform: `translateX(${(1 - progress) * -100}px)`,
-            opacity: progress,
-            transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            height: "160vh",
-            maxWidth: "50vw",
-            zIndex: 20,
-          }}
-        />
+       {/* Left Mountain */}
+<img
+  src={LeftMountain}
+  alt="Left Mountain"
+  className="hidden md:block"
+  style={{
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    height: "100%",     // take full section height
+    width: "auto",      // keep aspect ratio
+    maxHeight: "100%",  // never overflow
+    objectFit: "contain",
+    objectPosition: "bottom left",
+    transform: `translateX(${(1 - progress) * -100}px)`,
+    opacity: progress,
+    transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
+    zIndex: 20,
+  }}
+/>
 
-        {/* Right Mountain */}
-        <img
-          src={RightMountain}
-          alt="Right Mountain"
-          className="hidden md:block object-contain"
-          style={{
-            transform: `translateX(${(1 - progress) * 100}px)`,
-            opacity: progress,
-            transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            height: "160vh",
-            maxWidth: "50vw",
-            zIndex: 20,
-          }}
-        />
+{/* Right Mountain */}
+<img
+  src={RightMountain}
+  alt="Right Mountain"
+  className="hidden md:block"
+  style={{
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    height: "100%",     // take full section height
+    width: "auto",
+    maxHeight: "100%",
+    objectFit: "contain",
+    objectPosition: "bottom right",
+    transform: `translateX(${(1 - progress) * 100}px)`,
+    opacity: progress,
+    transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
+    zIndex: 20,
+  }}
+/>
+
 
         {/* Hero Text */}
-        <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 sm:px-2 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+        <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 text-center">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
             PLAY
             <br />
             BEYOND
@@ -127,23 +134,26 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Pirate Characters */}
-        <img
-          src={Characters}
-          alt="Pirate Team"
-          style={{
-            transform: `translateX(-50%) translateY(${(1 - progress) * 150}px)`,
-            opacity: progress,
-            transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
-            position: "absolute",
-            bottom: "1rem",
-            left: "50%",
-            zIndex: 25,
-            width: "100%",
-            maxWidth: "100vw",
-          }}
-          className="mt-4 h-[20rem] sm:h-[30rem] md:h-[40rem] lg:h-[50rem] w-full max-w-full"
-        />
+{/* Pirate Characters */}
+<img
+  src={Characters}
+  alt="Pirate Team"
+  style={{
+    position: "absolute",
+    bottom: 0,            // stick to bottom
+    left: 0,
+    width: "100%",        // full screen width
+    height: "100vh",       // half of the screen height
+    objectFit: "contain",   // cover full width, keep proportions
+    objectPosition: "bottom", // keep bottom aligned
+    transform: `translateY(${(1 - progress) * 100}px)`,
+    opacity: progress,
+    transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
+    zIndex: 25,
+  }}
+  className="pointer-events-none"
+/>
+
       </div>
     </div>
   );
