@@ -35,37 +35,37 @@ export default function About() {
 
   return (
     <section
-  ref={sectionRef}
-  className="relative bg-[#1f0036] text-white py-20 px-6 md:px-20 lg:px-32"
-  style={{
-    backgroundImage: `linear-gradient(to bottom,
-      rgba(10, 0, 20, 0.95),     /* Top - darkest */
-      rgba(128, 70, 200, 0.2),   /* Middle - lighter purple */
-      rgba(10, 0, 20, 0.95)      /* Bottom - darkest */
-    ), url(${aboutBg})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'scroll',
-    minHeight: '100vh',
-  }}
->
+      ref={sectionRef}
+      className="relative bg-[#1f0036] text-white py-20 px-6 md:px-20 lg:px-32"
+      style={{
+        backgroundImage: `linear-gradient(to bottom,
+          rgba(10, 0, 20, 0.95),
+          rgba(128, 70, 200, 0.2),
+          rgba(10, 0, 20, 0.95)
+        ), url(${aboutBg})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'scroll',
+        minHeight: '100vh',
+      }}
+    >
 
       <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-16">
 
         {/* Left Text Content */}
-        <div className="w-full lg:w-1/2 space-y-6">
-        <h1 className="text-5xl font-black tracking-wide text-white text-center lg:text-left mt-20 lg:mt-0">ABOUT</h1>
+        <div className="w-full lg:w-1/2 space-y-6 flex flex-col items-center lg:items-start">
+          <h1 className="text-5xl font-black tracking-wide text-white text-center lg:text-left mt-20 lg:mt-0">ABOUT</h1>
           <p className="text-lg leading-relaxed text-gray-200 text-center lg:text-left">
             We create unique gaming products, expand the possibilities of the gaming industry and promote the implementation of new ideas and approaches.
           </p>
-          <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold py-2 px-40 rounded shadow-lg transition-transform duration-300 transform hover:scale-110 mx-auto lg:mr-200">
+          <button className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold py-2 px-12 sm:px-40 rounded shadow-lg transition-transform duration-300 transform hover:scale-110 mx-auto lg:mx-0">
             CONTACT
           </button>
         </div>
 
         {/* Right Card part here */}
-        <div className="w-full lg:w-1/2 flex justify-center ml-2  lg:pb-0 mt-20">
+        <div className="w-full lg:w-1/2 flex justify-center ml-0 lg:ml-2 mt-12 lg:mt-20">
           <div
             className="relative w-[220px] h-[400px] bg-purple-300 rounded-2xl shadow-lg flex flex-col items-center p-6 text-black overflow-visible"
           >

@@ -38,7 +38,7 @@ const HeroSection = () => {
   const shouldFix = scrollY < fadeEnd;
 
   return (
-    <div className="relative" style={{ height: "110vh" }}>
+    <div className="relative h-[110vh] sm:h-[120vh] md:h-screen">
       <div
         className={`${
           shouldFix ? "fixed top-0 left-0 w-full h-screen z-20" : "absolute top-0 w-full"
@@ -114,7 +114,7 @@ const HeroSection = () => {
         />
 
         {/* Hero Text */}
-        <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 text-center">
+        <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 sm:px-2 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
             PLAY
             <br />
@@ -141,9 +141,8 @@ const HeroSection = () => {
             zIndex: 25,
             width: "100%",
             maxWidth: "100vw",
-            height: "100vh",
           }}
-          className="mt-4 sm:h-[30rem] md:h-[40rem]"
+          className="mt-4 h-[20rem] sm:h-[30rem] md:h-[40rem] lg:h-[50rem] w-full max-w-full"
         />
       </div>
     </div>

@@ -120,7 +120,7 @@ const RecruitmentSection = () => {
             }].map((role, idx) => (
               <div
                 key={idx}
-                className="flex-shrink-0 w-[280px] h-[400px] bg-purple-300 rounded-2xl flex flex-col hover:scale-105
+                className="flex-shrink-0 w-[280px] sm:w-[240px] xs:w-[200px] h-[400px] bg-purple-300 rounded-2xl flex flex-col hover:scale-105
                   hover:shadow-[0_0_15px_5px_rgba(128,0,128,0.7)] cursor-pointer items-center p-6 text-black
                   overflow-visible transition-shadow duration-300"
               >

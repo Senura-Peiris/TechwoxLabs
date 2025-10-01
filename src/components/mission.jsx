@@ -16,7 +16,7 @@ const MissionSection = () => {
       const sectionHeight = sectionRef.current.offsetHeight;
       const scrollTop = window.scrollY + window.innerHeight;
 
-      // Box with octupus image  movement
+      // Box with octupus image movement
       if (scrollTop > sectionTop && scrollTop < sectionTop + sectionHeight) {
         const distanceScrolledInSection = scrollTop - sectionTop;
         const progress = distanceScrolledInSection / sectionHeight;
@@ -50,23 +50,22 @@ const MissionSection = () => {
 
   return (
     <section
-    ref={sectionRef}
-    className="relative bg-[#1f0036] text-white py-20 px-6 md:px-20 lg:px-32"
-    style={{
-      backgroundImage: `linear-gradient(to bottom,
-        rgba(10, 0, 20, 0.95),     /* Top - darkest */
-        rgba(88, 28, 135, 0.55),   /* Middle - rich purple */
-        rgba(10, 0, 20, 0.95)      /* Bottom - darkest */
-      ), url(${MissionBg})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'scroll',
-      minHeight: "100vh",
-    }}
-  >
-  
-      <div className="text-center mb-1">
+      ref={sectionRef}
+      className="relative bg-[#1f0036] text-white py-20 px-6 md:px-20 lg:px-32"
+      style={{
+        backgroundImage: `linear-gradient(to bottom,
+          rgba(10, 0, 20, 0.95),
+          rgba(88, 28, 135, 0.55),
+          rgba(10, 0, 20, 0.95)
+        ), url(${MissionBg})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'scroll',
+        minHeight: "100vh",
+      }}
+    >
+      <div className="text-center mb-8">
         <h2 className="text-4xl md:text-5xl font-extrabold text-purple-300 mb-4">
           MISSION
         </h2>
@@ -77,8 +76,12 @@ const MissionSection = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-12 h-full">
-        <div className="text-left max-w-md">
-          <h3 className="text-2xl md:text-3xl font-extrabold text-purple-300 mb-4">CRAFTING MOBILE GAMES</h3>
+
+        {/* Left Text Section */}
+        <div className="text-left max-w-md flex flex-col items-center lg:items-start">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-purple-300 mb-4 text-center lg:text-left">
+            CRAFTING MOBILE GAMES
+          </h3>
           <p className="text-purple-100 text-center md:text-left">
             We create unique gaming products, <br />expand the possibilities of the<br />
             gaming industry and promote the <br />implementation of new ideas and<br />
@@ -86,12 +89,12 @@ const MissionSection = () => {
           </p>
         </div>
 
-        {/* Image with circular bottom shadow and scroll-based movement */}
-        <div className="relative inline-block mb-6" style={{ width: "20rem" }}>
+        {/* Center Box Image */}
+        <div className="relative inline-block mb-6 mt-12 lg:mt-0" style={{ width: "20rem" }}>
           <img
             src={boxotoImg}
             alt="Treasure Chest with Octopus"
-            className="rounded-xl block"
+            className="rounded-xl block mx-auto"
             style={{
               width: "18rem",
               maxWidth: "20.25rem",
@@ -99,8 +102,6 @@ const MissionSection = () => {
               transition: "transform 0.2s ease-out",
             }}
           />
-
-          {/* Oval shadow below image */}
           <div
             className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             style={{
@@ -114,23 +115,21 @@ const MissionSection = () => {
           />
         </div>
 
-        {/* Right Card with Color Background and Description */}
-        <div className="w-full lg:w-1/2 flex justify-center ml-2">
+        {/* Right Card with Bottle */}
+        <div className="w-full lg:w-1/2 flex justify-center ml-0 lg:ml-2 mt-12 lg:mt-0">
           <div className="relative w-[220px] h-[400px] bg-purple-300 rounded-xl shadow-lg transform transition-transform hover:cursor-pointer flex flex-col items-center p-6 text-black">
 
-            {/* Gradient Box Above Heading */}
-            <div className="w-full h-250 bg-gradient-to-br from-purple-600 to-pink-500 mb-4 rounded-lg" />
+            <div className="w-full h-60 sm:h-[250px] bg-gradient-to-br from-purple-600 to-pink-500 mb-4 rounded-lg" />
 
-            {/* bottle image part */}
             <img
               src={bottleImg}
               alt="Overlay Icon"
-              className="ml-15 absolute top-0 left-4/5 transform -translate-x-1/2 z-10 w-40 h-[17rem] object-contain transition-transform duration-500"
+              className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10 w-40 h-[17rem] object-contain transition-transform duration-500"
               style={{
                 width: "24rem",
                 maxWidth: "21.25rem",
-                transition: "transform 0.2s ease-out",
                 transform: `translateX(${bottleTranslateX}px) translateY(0)`,
+                transition: "transform 0.2s ease-out",
               }}
             />
 
