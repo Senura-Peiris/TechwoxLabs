@@ -1,6 +1,6 @@
-# React + Vite + Tailwind Css
+# TechwoxLabs Game Website 
 
-I created this website using React + Vite and Tailwind Css.
+I created this website using React + Vite and Tailwind Css.I got this project during my Internship. I generate images using AI.
 01. Hero Section: 
 ![image alt](https://github.com/Senura-Peiris/redbox/blob/master/Hero1.jpeg)
 
